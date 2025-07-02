@@ -21,7 +21,7 @@
       <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
 
-    <body x-data="{open : false, gg : true, carts : true}">
+    <body x-data="{open : false, gg : true, carts : false}">
             
         
       <div class="flex sm:hidden justify-between items-center justify-items-center" >
@@ -35,7 +35,7 @@
       <div>
         
         
-          <button @click="carts = !carts; gg = !gg">
+         <button @click="carts = !carts; gg = !gg">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-black">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
       </svg>
@@ -69,9 +69,9 @@
         </ul>
       </div>
       
-      <div class="sm:flex sm:justify-between flex">
-        <div class=" ml-5 sm:mt-5 sm:ml-70 w-256 h-128 max-h-1024 " x-show="gg">
-        
+      <div  x-show="gg" class="sm:flex sm:justify-between flex">
+        <div class=" ml-5 sm:mt-5 sm:ml-70 w-256 h-128 max-h-1024">
+        <div>
           <div class="pl-5 flex items-center justify-items-center">
             <form action="{{ route('SearchProduct') }}" method="post">
               @csrf
@@ -139,8 +139,8 @@
         
       </div>
       </div>
-    
-    <div x-show="carts" class="justify-self-center shadow-xl mr-15 ml-10 w-96 rounded-4xl mt-5  ">
+      </div>
+      <div x-show="carts" class="justify-self-center shadow-xl mr-15 ml-10 w-96 rounded-4xl mt-5  ">
               <h1 class="text-xl font-bold text-center">Your Cart</h1>
               
               <div class="pt-10">
@@ -179,7 +179,9 @@
             
           </div>
           </div>
+      </body>
+    
 
-          </body>
+          
   
     </html>
