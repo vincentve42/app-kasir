@@ -49,7 +49,7 @@ class HomeController extends Controller
         if(Auth::attempt($data))
         {
             $request->session()->regenerate();
-            
+            return redirect()->route('Dashboard');
         }
         
     }

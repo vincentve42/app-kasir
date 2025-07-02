@@ -1,12 +1,28 @@
 <html>
     <head>
-        @vite('resources/css/app.css')
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @php
+    $isProduction = app()->environment('production');
+    $manifestPath = $isProduction ? '../kasir.vecode.my.id/build/manifest.json' : public_path('build/manifest.json');
+ @endphp
+ 
+  @if ($isProduction && file_exists($manifestPath))
+   @php
+    $manifest = json_decode(file_get_contents($manifestPath), true);
+   @endphp
+    <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+    <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+  @else
+    @viteReactRefresh
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
+  @endif
+ 
        
     </head>
     <body>
         <form action="{{ route('Register')}}" method="post">
         @csrf
-         <div class="justify-self-center mt-15 shadow-2xl h-128 w-128 rounded-4xl">
+         <div class="justify-self-center mt-15 shadow-2xl md:h-128 md:w-128 rounded-4xl ">
                 <h1 class='text-4xl font-bold justify-self-center pt-5'>Register</h1>
                 <div class="justify-self-center items-center justify-items-center pt-10 flex">
                     <input name="username" type="text" class="text-xl w-64 border border-black rounded-2xl p-2 pl-10" placeholder="Email">
@@ -37,7 +53,7 @@
                     <button type="submit" class="text-xl p-2 border border-black text-white bg-black rounded-2xl">Proceed</button>
                 </div>
                 <div class="pt-7 justify-self-center">
-                    <p>Have An Account?</p>
+                    <a href="{{ route('LoginUi') }}"><p>Have An Account?</p></a>
                 </div>
                 <div class="justify-self-center">
                     @if ($errors->any())

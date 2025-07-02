@@ -18,7 +18,7 @@ class GuestChecker
     {
         if(Auth::user())
         {
-            return redirect()->route('dashboard');
+            return redirect()->route('Dashboard');
         }
         return $next($request);
     }
