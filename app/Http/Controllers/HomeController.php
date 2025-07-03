@@ -51,6 +51,12 @@ class HomeController extends Controller
             $request->session()->regenerate();
             return redirect()->route('Dashboard');
         }
+        else
+        {
+            session('log','Username atau Password Kamu Salah');
+            return redirect()->back();
+        }
+        
         
     }
 }

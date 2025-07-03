@@ -64,7 +64,7 @@
         <div id="judul">
           <h1 class="text-2xl font-bold">Dashboard</h1>
         </div>
-        <div class="grid grid-cols-4 gap-3 sm:grid-cols-2 justify-self-center sm:pt-10">
+        <div class="grid sm:grid-cols-4 gap-3 grid-cols-2 justify-self-center sm:pt-10">
             <div class="shadow-xl sm:w-64 sm:h-64">
                 <h1 class="text-xl p-5 font-bold justify-self-center">Product</h1>
                 <div class="pt-5 justify-self-center rounded-full bg-yellow-100 w-16 h-16">

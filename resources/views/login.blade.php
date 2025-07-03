@@ -23,7 +23,7 @@
     <body>
         <form action="{{ route('Login') }}" method="post">
             @csrf
-         <div class="justify-self-center mt-15 shadow-2xl md:h-128 md:w-128 rounded-4xl">
+         <div class="justify-self-center mt-15 w-128 h-128 shadow-2xl md:h-128 md:w-128 rounded-4xl">
                 <h1 class='text-4xl font-bold justify-self-center pt-5'>Login</h1>
                 <div class="justify-self-center items-center justify-items-center pt-10 flex">
                     <input name="email" type="text" class="text-xl w-64 border border-black rounded-2xl p-2 pl-10" placeholder="Email">
@@ -46,6 +46,12 @@
                 <div class="justify-self-center pt-7">
                     <button type="submit" class="text-xl p-2 border border-black text-white bg-black rounded-2xl">Proceed</button>
                 </div>
+                @if(session('logs'))
+
+                    <div class="text-red justify-self-center">
+                        <p>{{ session()->get('logs') }}</p>
+                    </div>
+                @endif
                 <div class="pt-7 justify-self-center">
                     <a href="{{ route('RegisterUi') }}"><p>Does'nt Have an Account?</p></a>
                     
