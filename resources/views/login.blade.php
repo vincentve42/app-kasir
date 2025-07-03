@@ -23,7 +23,7 @@
     <body>
         <form action="{{ route('Login') }}" method="post">
             @csrf
-         <div class="justify-self-center mt-15 w-128 h-128 shadow-2xl md:h-128 md:w-128 rounded-4xl">
+         <div class="justify-self-center mt-15 w-128 h-128 rounded-4xl sm:shadow-xl bg-white">
                 <h1 class='text-4xl font-bold justify-self-center pt-5'>Login</h1>
                 <div class="justify-self-center items-center justify-items-center pt-10 flex">
                     <input name="email" type="text" class="text-xl w-64 border border-black rounded-2xl p-2 pl-10" placeholder="Email">
@@ -52,7 +52,7 @@
                         <p>{{ session()->get('logs') }}</p>
                     </div>
                 @endif
-                <div class="pt-7 justify-self-center">
+                <div class="pt-7 justify-self-center mb-10">
                     <a href="{{ route('RegisterUi') }}"><p>Does'nt Have an Account?</p></a>
                     
                 </div>

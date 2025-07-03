@@ -22,7 +22,7 @@
     <body>
         <form action="{{ route('Register')}}" method="post">
         @csrf
-         <div class="justify-self-center mt-15 shadow-2xl md:h-128 md:w-128 rounded-4xl ">
+         <div class="justify-self-center mt-15 bg-white sm:shadow-2xl h-128 w-128 rounded-4xl ">
                 <h1 class='text-4xl font-bold justify-self-center pt-5'>Register</h1>
                 <div class="justify-self-center items-center justify-items-center pt-10 flex">
                     <input name="username" type="text" class="text-xl w-64 border border-black rounded-2xl p-2 pl-10" placeholder="Email">
